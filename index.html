@@ -53,22 +53,32 @@
         
         .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1.2rem 2.5rem;border-radius:999px;font-weight:800;text-decoration:none;text-transform:uppercase;transition:.3s;color:#fff; letter-spacing: 1px;}
         .btn-wa{background:#16a34a; border:2px solid #16a34a; box-shadow: 0 4px 20px rgba(22,163,74,0.5); font-size: 1.1rem; width: 100%; max-width: 500px; margin: 0 auto;}
-        .trust-badge{display:flex; justify-content:center; gap: 1.5rem; margin-top: 1.5rem; font-weight: 700; color: #fbbf24; flex-wrap: wrap;}
+        .btn-sm{padding: 0.6rem 1.2rem; font-size: 0.85rem; border-radius: 8px;}
         
+        .trust-badge{display:flex; justify-content:center; gap: 1.5rem; margin-top: 1.5rem; font-weight: 700; color: #fbbf24; flex-wrap: wrap;}
         .card{background:#1e293b; border:1px solid var(--border); border-radius:1rem; padding:2rem; transition: transform 0.3s;}
         .card:hover{transform: translateY(-5px); border-color: var(--primary);}
         
+        .area-card{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:1rem;border:1px solid var(--border);background:#1e293b; display:flex; flex-direction:column; text-decoration:none;}
+        .area-img{width:100%;height:50%;object-fit:cover;filter:brightness(0.8); transition: transform 0.5s; background: #334155;}
+        .area-content{padding: 1.5rem; flex: 1; display:flex; flex-direction:column; justify-content:space-between; background: #1e293b;}
+        .area-card:hover .area-img { transform: scale(1.05); filter: brightness(1); }
+        .card-center { grid-column: 2; }
+        
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+        .gallery-item{position:relative;border-radius:.8rem;overflow:hidden;aspect-ratio:4/3;background:#334155;border:1px solid var(--border)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
+
+        /* MAPS CONTAINER */
+        .maps-container{width:100%; max-width:800px; margin:0 auto; border-radius:1rem; overflow:hidden; border:1px solid var(--border); box-shadow:0 10px 30px rgba(0,0,0,0.5); background:#1e293b; margin-bottom: 2rem;}
+        .maps-container img{width:100%; height:auto; object-fit:cover; display:block;}
+
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: #1e293b; border-radius: 0.5rem; overflow: hidden; font-size: 0.95rem; }
         th, td { padding: 1rem; border: 1px solid var(--border); text-align: left; }
         th { background: var(--darker); color: var(--primary); font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; }
         .table-responsive { overflow-x: auto; width: 100%; }
 
-        .silo-list { list-style: none; padding: 0; }
-        .silo-list li { margin-bottom: 1rem; border-bottom: 1px dashed var(--border); padding-bottom: 1rem; }
-        .silo-list a { color: #f8fafc; text-decoration: none; display: flex; align-items: flex-start; gap: 10px; transition: 0.3s; font-size: 1.05rem; font-weight: 700;}
-        .silo-list a:hover { color: var(--primary); padding-left: 10px;}
-        .silo-list a::before { content: '➔'; color: var(--primary); }
-        .escape-hatch { display: inline-block; margin-top: 1.5rem; color: #94a3b8; font-size: 0.9rem; }
+        .escape-hatch { display: inline-block; margin-top: 1.5rem; color: #94a3b8; font-size: 0.9rem; text-align:center; width:100%; }
         .escape-hatch a { color: var(--primary); text-decoration: underline; font-weight: bold; }
         
         details {background: #1e293b; border: 1px solid var(--border); border-radius: 0.5rem; margin-bottom: 1rem; overflow: hidden;}
@@ -80,6 +90,8 @@
 
         @media (max-width:768px){
             .grid-2,.grid-3{grid-template-columns:1fr}
+            .card-center { grid-column: 1; }
+            .gallery-grid{grid-template-columns:repeat(2,1fr)}
             .hero h1{font-size:2.2rem;}
             .hero p{font-size: 1rem;}
             .trust-badge{flex-direction: column; gap: 0.5rem;}
@@ -95,14 +107,14 @@
 
     <nav style="position: fixed; top: 0; width: 100%; z-index: 50; background: var(--darker); border-bottom: 1px solid var(--border);">
         <div class="container" style="height: 70px; display: flex; justify-content: center; align-items: center;">
-            <div style="font-family: 'Rajdhani', sans-serif; font-size: 1.8rem; font-weight: 800; color: #ffffff; letter-spacing: 2px;">
-                BEJO<span class="text-primary">PELITA</span>
-            </div>
+            <a href="/" aria-label="Beranda BEJOPELITA">
+                <img src="img/logo-bejopelita-saluran-mampet-jabodetabek.svg" alt="Logo Resmi BEJOPELITA Jasa Saluran Mampet." width="200" height="50" style="object-fit: contain;">
+            </a>
         </div>
     </nav>
 
     <header class="hero">
-        <img src="img/jasa-saluran-mampet-sedot-wc-jabodetabek-bejopelita.webp" alt="Teknisi Bejopelita memperbaiki saluran mampet" class="hero-bg" fetchpriority="high" loading="eager" decoding="sync" width="1920" height="1080">
+        <img src="img/jasa-saluran-mampet-sedot-wc-jabodetabek-bejopelita.webp" alt="Spesialis jasa saluran mampet dan sedot wc Jakarta Depok Tangerang menggunakan mesin spiral Ridgid." class="hero-bg" fetchpriority="high" loading="eager" decoding="sync" width="1920" height="1080">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>SOLUSI CEPAT JASA SALURAN MAMPET & SEDOT WC DI JABODETABEK</h1>
@@ -131,7 +143,7 @@
             <h2 class="text-center mb-8" style="font-size: 2.2rem;">SENJATA ANDALAN <span class="text-primary">BEJOPELITA</span> ATASI MASALAH ANDA</h2>
             <div class="grid grid-3">
                 <div class="card">
-                    <h3 class="text-primary mb-4">⚙️ Jasa Saluran Mampet (Mesin Spiral/Ridgid)</h3>
+                    <h3 class="text-primary mb-4">⚙️ Jasa Saluran Mampet (Mesin Spiral)</h3>
                     <p style="color: #cbd5e1;">Kami tidak menebak-nebak. Kabel baja fleksibel dari mesin Drain Cleaner Rooter kami akan masuk mengikuti liuk pipa, menghancurkan kerak lemak, rambut, dan puing sekeras apa pun dari dalam. <strong>100% Aman</strong> tanpa menghancurkan properti Anda.</p>
                 </div>
                 <div class="card">
@@ -163,7 +175,7 @@
                     <tbody>
                         <tr>
                             <td style="font-weight: 700; color: #fff;">DKI Jakarta</td>
-                            <td style="color: #cbd5e1;">Jakarta Selatan (Kebayoran, Cilandak), Jakarta Barat (Grogol, Cengkareng), Jakarta Utara (PIK, Kelapa Gading), Jakarta Pusat (Menteng), Jakarta Timur (Cakung, Duren Sawit).</td>
+                            <td style="color: #cbd5e1;">Jakarta Selatan (Kebayoran), Jakarta Barat (Grogol), Jakarta Utara (PIK), Jakarta Pusat (Menteng), Jakarta Timur (Cakung).</td>
                             <td style="color: #fbbf24;">Saluran Mampet, Sedot WC, Deteksi Bocor</td>
                         </tr>
                         <tr>
@@ -183,24 +195,137 @@
     </section>
 
     <section>
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">SOLUSI SPESIFIK <span class="text-primary">AREA ANDA</span></h2>
+                <p style="color: #94a3b8; max-width: 600px; margin: 0 auto;">Jaringan penanganan BEJOPELITA terspesialisasi di berbagai sudut Jabodetabek. Pilih area Anda untuk bantuan cepat.</p>
+            </div>
+
+            <div class="grid grid-3">
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Jakarta%20Selatan." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/perbaikan-saluran-mampet-wastafel-apartemen-jakarta-selatan.webp" alt="Tukang perbaikan saluran mampet wastafel apartemen di Jakarta Selatan" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Jakarta Selatan</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Solusi Perbaikan Wastafel Apartemen.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Jakarta%20Barat/Utara." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/jasa-sedot-wc-grease-trap-restoran-jakarta-barat.webp" alt="Jasa sedot wc dan pembersihan grease trap lemak restoran Jakarta Barat Utara" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Jakbar & Utara</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Layanan Sedot Grease Trap Restoran.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Jakarta%20Timur." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/pembersihan-selokan-bak-kontrol-mampet-jakarta-timur.webp" alt="Pembersihan selokan dan bak kontrol mampet menggunakan mesin ridgid Jakarta Timur" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Jakarta Timur</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Ahli Mesin Ridgid untuk Bak Kontrol Mampet.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Depok." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/jasa-sedot-wc-rumah-tangga-cepat-depok.webp" alt="Panggilan jasa sedot wc mampet rumah tangga cepat di Depok" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Kota Depok</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Panggilan Darurat WC Mampet 24 Jam.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Tangerang." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/ahli-pipa-paralon-mampet-pelancar-saluran-tangerang.webp" alt="Ahli pelancar pipa paralon saluran air mampet tanpa bongkar Tangerang" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Tangerang</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Pelancar Pipa Paralon Tanpa Bongkar.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20DKI%20Jakarta." target="_blank" rel="noopener noreferrer" class="area-card">
+                    <img src="img/tukang-saluran-mampet-sedot-wc-24-jam-jakarta.webp" alt="Armada darurat 24 jam tukang saluran mampet dan sedot wc DKI Jakarta" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">DKI Jakarta</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Tukang Saluran Mampet & Sedot WC Siaga.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet%20di%20area%20Jakarta%20Pusat." target="_blank" rel="noopener noreferrer" class="area-card card-center">
+                    <img src="img/spesialis-deteksi-pipa-bocor-bawah-tanah-jakarta-pusat.webp" alt="Spesialis deteksi pipa air bocor bawah tanah menggunakan acoustics leak detector Jakarta Pusat" class="area-img" loading="lazy" decoding="async" width="800" height="600">
+                    <div class="area-content">
+                        <div>
+                            <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem;">Jakarta Pusat</h3>
+                            <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1rem;">Deteksi Pipa Bocor Bawah Tanah Akurat.</p>
+                        </div>
+                        <span class="btn btn-wa btn-sm" style="width:100%; text-align:center;">📍 PANGGIL TEKNISI KEMARI</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="escape-hatch">
+                Ingin melihat profil perusahaan dan jangkauan korporat kami? Kunjungi portal resmi kami di <a href="https://www.bejopelita.web.id" target="_blank" rel="noopener noreferrer">BEJOPELITA Official Website</a>.
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20" style="background: var(--darker);">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 style="font-size: 2.2rem; margin-bottom: 0.5rem;">BUKTI KERJA NYATA <span class="text-primary">BEJOPELITA</span></h2>
+                <p style="color: #94a3b8;">Dedikasi dan profesionalisme teknisi kami di lapangan.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/porto-bejo-01.webp" alt="Truk sedot WC BEJOPELITA di hotel mewah" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-02.webp" alt="Deteksi pipa bocor dengan alat acoustic" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-03.webp" alt="Hasil sebelum dan sesudah pelancaran pipa" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-04.webp" alt="Teknisi BEJOPELITA bersalaman dengan pelanggan" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-05.webp" alt="Mesin spiral Ridgid pelancar saluran" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-06.webp" alt="Pembersihan grease trap restoran" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-07.webp" alt="Perbaikan floor drain kamar mandi" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-08.webp" alt="Kloset bersih setelah disedot" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-09.webp" alt="Armada mobil dan truk BEJOPELITA" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-10.webp" alt="Teknisi mengoperasikan mesin rooter" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-11.webp" alt="Layanan darurat saluran mampet malam hari" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-12.webp" alt="Pembayaran jasa saluran mampet QR code" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-13.webp" alt="Aliran air lancar di selokan" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-14.webp" alt="Peralatan lengkap teknisi saluran mampet" loading="lazy" decoding="async" width="1080" height="1080"></div>
+                <div class="gallery-item"><img src="img/porto-bejo-15.webp" alt="Kamera inspeksi endoskop untuk pipa PVC" loading="lazy" decoding="async" width="1080" height="1080"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
         <div class="container grid-2" style="gap: 4rem;">
             
             <div>
-                <h2 class="mb-4">SOLUSI SPESIFIK <span class="text-primary">AREA ANDA</span></h2>
-                <p style="color: #cbd5e1; margin-bottom: 1.5rem;">BEJOPELITA memiliki jaringan penanganan yang sangat terspesialisasi. Pelajari bagaimana kami menyelesaikan masalah spesifik di berbagai sudut kota:</p>
-                
-                <ul class="silo-list">
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Solusi Perbaikan Wastafel Apartemen di Jakarta Selatan</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Layanan Sedot Grease Trap Restoran di Jakarta Barat & Utara</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Ahli Mesin Ridgid untuk Bak Kontrol di Jakarta Timur</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Panggilan Darurat WC Mampet 24 Jam di Depok</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Pelancar Pipa Paralon Tanpa Bongkar di Tangerang</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Tukang Saluran Mampet & Sedot WC Siaga di DKI Jakarta</a></li>
-                    <li><a href="#" target="_blank" rel="noopener noreferrer">Deteksi Pipa Bocor Bawah Tanah Akurat di Jakarta Pusat</a></li>
-                </ul>
+                <h2 class="mb-4">AREA <span class="text-primary">CAKUPAN KAMI</span></h2>
+                <div class="maps-container mb-4">
+                    <img src="img/peta-jangkauan-layanan-bejopelita-jabodetabek.webp" alt="Peta jangkauan layanan jasa saluran mampet dan sedot wc BEJOPELITA di Jakarta Depok Tangerang." loading="lazy" decoding="async" width="1200" height="800">
+                </div>
 
-                <div class="escape-hatch">
-                    Ingin melihat profil perusahaan dan jangkauan korporat kami? Kunjungi portal resmi kami di <a href="https://www.bejopelita.web.id" target="_blank" rel="noopener noreferrer">BEJOPELITA Official Website</a>.
+                <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; border: 1px solid var(--border);">
+                    <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 1rem;">Hubungi Tim Darurat 24/7:</h3>
+                    <a href="tel:6285141754704" style="color: var(--primary); font-weight: 800; font-size: 2.2rem; text-decoration: none; display: block; margin-bottom: 1rem;">0851-4175-4704</a>
+                    <p style="color: #94a3b8; font-size: 1rem;">BEJOPELITA Siap meluncur ke lokasi Anda di seluruh wilayah Jakarta, Depok, dan Tangerang.</p>
                 </div>
             </div>
 
@@ -208,7 +333,7 @@
                 <h2 class="mb-4">TANYA JAWAB <span class="text-primary">(FAQ)</span></h2>
                 
                 <details>
-                    <summary>Berapa biaya jasa saluran mampet di Jakarta dan sekitarnya?</summary>
+                    <summary>Berapa biaya jasa saluran mampet di Jakarta?</summary>
                     <div class="faq-content">Harga kami sangat transparan dan disesuaikan dengan tingkat keparahan sumbatan serta jarak lokasi. Kami menjamin harga terjangkau tanpa biaya tersembunyi. Silakan chat WA kami untuk estimasi langsung.</div>
                 </details>
 

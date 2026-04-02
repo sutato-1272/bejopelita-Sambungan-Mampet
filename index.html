@@ -30,13 +30,12 @@
     </script>
 
     <style>
-        /* CSS MINIFIED UNTUK SPEED WUSSS */
         :root{--primary:#ea580c;--dark:#0f172a;--darker:#020617;--border:rgba(255,255,255,0.15)}
         *{margin:0;padding:0;box-sizing:border-box;outline:0}
         body{font-family:'Outfit',system-ui,-apple-system,sans-serif;background-color:var(--dark);color:#f8fafc;line-height:1.6;overflow-x:hidden;text-rendering:optimizeLegibility}
         
         section { content-visibility: auto; contain-intrinsic-size: 800px; padding: 5rem 0;}
-        .hero { content-visibility: visible; padding: 0; }
+        .hero { content-visibility: visible; padding: 0; position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--darker); overflow: hidden; }
         
         h1,h2,h3,h4{font-family:'Rajdhani',system-ui,-apple-system,sans-serif;text-transform:uppercase;color:#fff}
         .text-primary{color:var(--primary)}.text-center{text-align:center}
@@ -44,13 +43,13 @@
         .grid{display:grid;gap:1.5rem}.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}
         .mb-4{margin-bottom:1rem}.mb-8{margin-bottom:2rem}
         
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--darker);overflow:hidden;}
-        ./* KODE BARU (Gambar Jelas & Mewah) */
+        /* FIX HIERARKI HERO */
         .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1; opacity: 0.65;} 
         .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(2,6,23,0.4), rgba(2,6,23,0.9));z-index:2}
         .hero-content{position:relative;z-index:3;max-width:1000px;padding:0 1rem; margin-top: 50px;}
-        .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.9);}
-        .hero p{font-size: 1.2rem; color: #e2e8f0; margin-bottom: 2rem; line-height: 1.6;}
+        
+        .hero h1{font-size:clamp(2.2rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.9);}
+        .hero p{font-size: 1.2rem; color: #e2e8f0; margin-bottom: 2rem; line-height: 1.6; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);}
         
         .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1.2rem 2.5rem;border-radius:999px;font-weight:800;text-decoration:none;text-transform:uppercase;transition:.3s;color:#fff; letter-spacing: 1px;}
         .btn-wa{background:#16a34a; border:2px solid #16a34a; box-shadow: 0 4px 20px rgba(22,163,74,0.5); font-size: 1.1rem; width: 100%; max-width: 500px; margin: 0 auto;}
@@ -69,10 +68,6 @@
         .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
         .gallery-item{position:relative;border-radius:.8rem;overflow:hidden;aspect-ratio:4/3;background:#334155;border:1px solid var(--border)}
         .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s}
-
-        /* MAPS CONTAINER */
-        .maps-container{width:100%; max-width:800px; margin:0 auto; border-radius:1rem; overflow:hidden; border:1px solid var(--border); box-shadow:0 10px 30px rgba(0,0,0,0.5); background:#1e293b; margin-bottom: 2rem;}
-        .maps-container img{width:100%; height:auto; object-fit:cover; display:block;}
 
         table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: #1e293b; border-radius: 0.5rem; overflow: hidden; font-size: 0.95rem; }
         th, td { padding: 1rem; border: 1px solid var(--border); text-align: left; }
@@ -93,7 +88,7 @@
             .grid-2,.grid-3{grid-template-columns:1fr}
             .card-center { grid-column: 1; }
             .gallery-grid{grid-template-columns:repeat(2,1fr)}
-            .hero h1{font-size:2.2rem;}
+            .hero h1{font-size:2rem;}
             .hero p{font-size: 1rem;}
             .trust-badge{flex-direction: column; gap: 0.5rem;}
             .mobile-float{position:fixed;bottom:0;left:0;width:100%;z-index:100;padding:1rem;background:var(--dark);border-top:1px solid var(--border);}
@@ -280,10 +275,6 @@
                     </div>
                 </a>
             </div>
-            
-            <div class="escape-hatch">
-                Ingin melihat profil perusahaan dan jangkauan korporat kami? Kunjungi portal resmi kami di <a href="https://www.bejopelita.web.id" target="_blank" rel="noopener noreferrer">BEJOPELITA Official Website</a>.
-            </div>
         </div>
     </section>
 
@@ -316,12 +307,9 @@
 
     <section>
         <div class="container grid-2" style="gap: 4rem;">
-            
             <div>
                 <h2 class="mb-4">MARKAS <span class="text-primary">BEJOPELITA</span></h2>
-                
                 <div style="background: #1e293b; padding: 2.5rem; border-radius: 1rem; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    
                     <div style="margin-bottom: 2rem;">
                         <h3 style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">📍 Alamat Pusat:</h3>
                         <p style="color: #fff; font-size: 1.1rem; line-height: 1.6; font-weight: 700;">
@@ -330,40 +318,33 @@
                             Jakarta Selatan, Kode Pos 12450
                         </p>
                     </div>
-                    
                     <div style="margin-bottom: 2rem;">
                         <h3 style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">📞 Telepon Darurat:</h3>
-                        <a href="tel:6289530607936" style="color: var(--primary); font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'">0895-3060-7936</a>
-                        <a href="tel:6285894354536" style="color: var(--primary); font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--primary)'">0858-9435-4536</a>
+                        <a href="tel:6289530607936" style="color: var(--primary); font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block;">0895-3060-7936</a>
+                        <a href="tel:6285894354536" style="color: var(--primary); font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block;">0858-9435-4536</a>
                     </div>
-
                     <div>
                         <h3 style="font-size: 1.1rem; color: #94a3b8; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">📲 WhatsApp (Fast Response):</h3>
-                        <a href="https://wa.me/6289530607936?text=Halo%20BEJOPELITA,%20saya%20butuh%20bantuan%20darurat." target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block; margin-bottom: 0.3rem; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#22c55e'">0895-3060-7936</a>
-                        <a href="https://wa.me/6282210078837?text=Halo%20BEJOPELITA,%20saya%20butuh%20bantuan%20darurat." target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#22c55e'">0822-1007-8837</a>
+                        <a href="https://wa.me/6289530607936?text=Halo%20BEJOPELITA,%20saya%20butuh%20bantuan%20darurat." target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block; margin-bottom: 0.3rem;">0895-3060-7936</a>
+                        <a href="https://wa.me/6282210078837?text=Halo%20BEJOPELITA,%20saya%20butuh%20bantuan%20darurat." target="_blank" rel="noopener noreferrer" style="color: #22c55e; font-weight: 800; font-size: 1.8rem; text-decoration: none; display: block;">0822-1007-8837</a>
                     </div>
-
                 </div>
             </div>
 
             <div>
                 <h2 class="mb-4">TANYA JAWAB <span class="text-primary">(FAQ)</span></h2>
-                
                 <details>
                     <summary>Berapa biaya jasa saluran mampet di Jakarta?</summary>
                     <div class="faq-content">Harga kami sangat transparan dan disesuaikan dengan tingkat keparahan sumbatan serta jarak lokasi. Kami menjamin harga terjangkau tanpa biaya tersembunyi. Silakan chat WA kami untuk estimasi langsung.</div>
                 </details>
-
                 <details>
                     <summary>Apakah layanan sedot WC buka 24 jam?</summary>
                     <div class="faq-content">Tentu saja! Masalah sanitasi tidak mengenal waktu. Armada sedot WC dan pelancar saluran mampet kami siaga 24/7 untuk panggilan darurat.</div>
                 </details>
-
                 <details>
                     <summary>Benarkah proses pelancar pipa dilakukan tanpa bongkar lantai?</summary>
                     <div class="faq-content">Benar 100%. Kami menggunakan Mesin Spiral (Drain Cleaner) Rooter canggih yang masuk langsung ke dalam pipa PVC untuk menghancurkan kotoran, sehingga keramik dan lantai rumah Anda tetap utuh.</div>
                 </details>
-
                 <details>
                     <summary>Apakah hasil pekerjaan BEJOPELITA bergaransi?</summary>
                     <div class="faq-content">Kami memberikan garansi tuntas. Sistem kami adalah: teknisi bekerja, saluran dipastikan mengalir lancar (plong), Anda cek hasilnya, baru Anda bayar.</div>
@@ -382,45 +363,5 @@
         <a href="https://wa.me/6285141754704?text=Halo%20BEJOPELITA,%20tolong%20darurat%20saluran%20mampet." class="btn btn-wa pulse">📱 KONSULTASI VIA WHATSAPP</a>
     </div>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Berapa biaya jasa saluran mampet di Jakarta dan sekitarnya?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Harga kami sangat transparan dan disesuaikan dengan tingkat keparahan sumbatan serta jarak lokasi. Kami menjamin harga terjangkau tanpa biaya tersembunyi. Silakan chat WA kami untuk estimasi langsung."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Apakah layanan sedot WC Depok dan Tangerang buka 24 jam?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tentu saja! Masalah sanitasi tidak mengenal waktu. Armada sedot WC dan pelancar saluran mampet kami siaga 24/7 untuk panggilan darurat."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Benarkah proses pelancar pipa mampet dilakukan tanpa bongkar lantai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Benar 100%. Kami menggunakan Mesin Spiral (Drain Cleaner) Rooter canggih yang masuk langsung ke dalam pipa PVC untuk menghancurkan kotoran, sehingga keramik dan lantai rumah Anda tetap utuh."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Apakah hasil pekerjaan BEJOPELITA bergaransi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Kami memberikan garansi tuntas. Sistem kami adalah: teknisi bekerja, saluran dipastikan mengalir lancar (plong), Anda cek hasilnya, baru Anda bayar."
-          }
-        }
-      ]
-    }
-    </script>
 </body>
 </html>
